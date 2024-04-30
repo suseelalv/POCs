@@ -28,12 +28,10 @@ const BookingModal = props => {
         <div className="modal__boday">
           <p className="modal__paragraph">{findRoomInfo(props.selectedBooking.roomId, props.roomData).name}{', Level '}
           {findRoomInfo(props.selectedBooking.roomId, props.roomData).floor}</p>
-          <p className="modal__paragraph">{`${momentTimezone
-              .tz(props.selectedBooking['bookingStart'], 'Australia/Sydney')
-            .format('h.mma')} to ${momentTimezone
-              .tz(props.selectedBooking['bookingEnd'], 'Australia/Sydney')
+          <p className="modal__paragraph">{`${momentTimezone(props.selectedBooking['bookingStart'])
+            .format('h.mma')} to ${momentTimezone(props.selectedBooking['bookingEnd'])
               .format('h.mma')}`}
-            <p className="modal__paragraph">{`${momentTimezone.tz(props.selectedBooking['bookingStart'], 'Australia/Sydney').format('MMMM Do, YYYY')} to ${momentTimezone.tz(props.selectedBooking['bookingEnd'], 'Australia/Sydney').format('MMMM Do, YYYY')}`}
+            <p className="modal__paragraph">{`${momentTimezone(props.selectedBooking['bookingStart']).format('MMMM Do, YYYY')} to ${momentTimezone(props.selectedBooking['bookingEnd']).format('MMMM Do, YYYY')}`}
           </p>
           </p>
           <p className="modal__paragraph"><strong>Business Unit </strong>{props.selectedBooking['businessUnit']}</p>
