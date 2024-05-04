@@ -44,8 +44,8 @@ export function makeBooking(data, existingBookings) {
     dateUTC(data.recurringData[0]).getTime() > newBookingEnd : true
 
   // Save the booking to the database and return the booking if there are no clashes and the new booking time is not in the past
-  let bookingStartPass = moment(bookingStart).format('YYYY-MM-DDThh:mm:ss');
-  let bookingEndPass = moment(bookingEnd).format('YYYY-MM-DDThh:mm:ss');
+  let bookingStartPass = moment(bookingStart).format('YYYY-MM-DDTHH:mm:ss');
+  let bookingEndPass = moment(bookingEnd).format('YYYY-MM-DDTHH:mm:ss');
   //console.log('bfr call api ',bookingClash, validDate, validRecurring, bookingStart, bookingEnd, bookingStartPass, bookingEndPass, data);
 
   if (!bookingClash && validDate && validRecurring) {
