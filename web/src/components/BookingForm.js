@@ -43,7 +43,7 @@ function BookingForm({ onMakeBooking, user, roomData, date, updateCalendar, onSh
   return (
     <Fragment>
       <div className="header__page">
-        <h2 className="header__heading header__heading--sub">Level {roomData.floor} | {roomData.name}</h2>
+        <h2 className="header__heading header__heading--sub">Location {(roomData.floor == 8) ? "Stains" : "Croydon"} | {roomData.name}</h2>
       </div>
       <form className="form__grid form--booking" onSubmit={event => {
           event.preventDefault()

@@ -6,7 +6,7 @@ const RoomsList = props => (
   <table className="table">
     <tr className="table__row table__row--header">
       <th scope="colgroup" colSpan="15" className="table__cell--header table__cell--level table__cell--align-left">
-        Level Eight
+        Stains
       </th>
     </tr>
     <tr className="table__row table__row--subheader">
@@ -68,7 +68,7 @@ const RoomsList = props => (
     </tbody>
     <tr className="table__row table__row--header">
       <th scope="colgroup" colSpan="15" className="table__cell--header table__cell--level table__cell--align-left">
-        Level Thirteen
+      Croydon
       </th>
     </tr>
     <tr className="table__row table__row--subheader">

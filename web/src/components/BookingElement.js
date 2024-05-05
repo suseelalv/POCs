@@ -24,7 +24,7 @@ function BookingElement({
       <div className="booking__innerbox--middle">
         <p>From {startTime} to {endTime}</p>
         <p>Duration {bookingData.duration}hrs</p>
-        <p>Level {roomInfo.floor}, {roomInfo.name}</p>
+        <p>Location {(roomInfo.floor == 8) ? "Stains" : "Croydon"}, {roomInfo.name}</p>
       </div>
       <div className="booking__innerbox--right">
         <Button
