@@ -421,8 +421,10 @@ class App extends Component {
     if (signedIn) {
       // display loading page
       this.setState({ loading: true })
-      // load all of the rooms from the database
-      listRooms()
+      
+      setTimeout(() => {
+        // load all of the rooms from the database
+        listRooms()
         .then(rooms => {
           this.setState({ roomData: rooms })
           // load the current user's bookings
@@ -435,8 +437,10 @@ class App extends Component {
         })
         .catch(error => {
           console.error('Error loading room data', error)
-          this.setState({ error })
+          this.setState({ error })          
         })
+      }, 2000);
+      
     }
   }
 

@@ -26,7 +26,7 @@ const BookingModal = props => {
       <h3 className="modal__title">Booking Details</h3>
       {!!props.selectedBooking && (
         <div className="modal__boday">
-          <p className="modal__paragraph">{findRoomInfo(props.selectedBooking.roomId, props.roomData).name}{', Location '}
+          <p className="modal__paragraph">{findRoomInfo(props.selectedBooking.roomId, props.roomData).name}{', Location: '}
           {(findRoomInfo(props.selectedBooking.roomId, props.roomData).floor == 8)? "Stains":"Croydon"}</p>
           <p className="modal__paragraph">{`${momentTimezone(props.selectedBooking['bookingStart'])
             .format('h.mma')} to ${momentTimezone(props.selectedBooking['bookingEnd'])
