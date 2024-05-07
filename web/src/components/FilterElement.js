@@ -94,7 +94,7 @@ function FilterElement({
             <div className="form_group">
               <input type="radio" id="fullyBooked" value="fullBooked" name="availability" className="form__input--radio" checked={availabilityParam === 'fullBooked' ? true : false} />
               <label for="fullyBooked" className="form__label form__label--inline">Fully Booked</label>
-            </div>
+            </div><br />
           </div>
       </form>
     </div>

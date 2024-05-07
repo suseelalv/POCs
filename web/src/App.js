@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import './css/style.css'
 import moment from 'moment'
+import logo from './assets/logo.png'
 
 import BookingForm from './components/BookingForm'
 import Button from './components/Button'
@@ -277,7 +278,9 @@ class App extends Component {
                     {!!decodedToken && !!roomData && !loading && (
                       <div className="wrapper">
                         <div className="header header__nav header--flex">
-                          <h1 className="header__heading header__heading--main">Company Name Here</h1>
+                          <h1 className="header__heading header__heading--main">
+                            <img src={logo} />
+                          </h1>
                           <NavBar
                             signOut={signOut}
                             loadMyBookings={loadMyBookings}
@@ -342,7 +345,9 @@ class App extends Component {
                         !!currentRoom && (
                           <div className="wrapper">
                             <header className="header header__nav header--flex">
-                              <h1 className="header__heading header__heading--main">Company Name Here</h1>
+                              <h1 className="header__heading header__heading--main">
+                                <img src={logo} />
+                              </h1>
                               <NavBar
                                 signOut={signOut}
                                 loadMyBookings={loadMyBookings}
@@ -380,7 +385,9 @@ class App extends Component {
                         !!roomData && (
                           <div className="wrapper">
                             <div className="header header__nav header--flex">
-                              <h1 className="header__heading header__heading--main">Company Name Here</h1>
+                              <h1 className="header__heading header__heading--main">
+                                <img src={logo} />
+                              </h1>
                               <NavBar
                                 signOut={signOut}
                                 loadMyBookings={loadMyBookings}
