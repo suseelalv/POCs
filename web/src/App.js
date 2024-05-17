@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import './css/style.css'
 import moment from 'moment'
-import logo from './assets/logo.png'
+//import logo from './assets/logo.png'
 
 import BookingForm from './components/BookingForm'
 import Button from './components/Button'
@@ -50,6 +50,7 @@ class App extends Component {
     error: null,
     disableRecurring: true
   }
+  
 
   // Pass supplied first name, lastname, email & password to the signUp function, returns the user's token
   onSignUp = ({ firstName, lastName, email, password }) => {
@@ -279,7 +280,7 @@ class App extends Component {
                       <div className="wrapper">
                         <div className="header header__nav header--flex">
                           <h1 className="header__heading header__heading--main">
-                            <img src={logo} />
+                            {/*<img src={logo} />-*/} Room Booking System
                           </h1>
                           <NavBar
                             signOut={signOut}
@@ -346,7 +347,7 @@ class App extends Component {
                           <div className="wrapper">
                             <header className="header header__nav header--flex">
                               <h1 className="header__heading header__heading--main">
-                                <img src={logo} />
+                                {/*<img src={logo} />-*/} Room Booking System
                               </h1>
                               <NavBar
                                 signOut={signOut}
@@ -386,7 +387,7 @@ class App extends Component {
                           <div className="wrapper">
                             <div className="header header__nav header--flex">
                               <h1 className="header__heading header__heading--main">
-                                <img src={logo} />
+                                {/*<img src={logo} />-*/} Room Booking System
                               </h1>
                               <NavBar
                                 signOut={signOut}
