@@ -6,6 +6,7 @@ Room.create([
     name: 'Room 1',
     floor: '8',
     capacity: 18,
+    price: 100,
     assets: {
       pcLab: true
     }
@@ -14,6 +15,7 @@ Room.create([
     name: 'Room 2',
     floor: '8',
     capacity: 18,
+    price: 110,
     assets: {
       projector: true
     }
@@ -22,6 +24,7 @@ Room.create([
     name: 'Room 3',
     floor: '8',
     capacity: 18,
+    price: 120,
     assets: {
       projector: true,
       opWalls: true
@@ -30,12 +33,14 @@ Room.create([
   {
     name: 'Room 4',
     floor: '8',
-    capacity: 24
+    capacity: 24,
+    price: 130
   },
   {
     name: 'Room 5',
     floor: '8',
     capacity: 18,
+    price: 140,
     assets: {
       opWalls: true
     }
@@ -45,6 +50,7 @@ Room.create([
     name: 'Room 1',
     floor: '13',
     capacity: 20,
+    price: 100,
     assets: {
       opWalls: true
     }
@@ -53,6 +59,7 @@ Room.create([
     name: 'Room 2',
     floor: '13',
     capacity: 20,
+    price: 110,
     assets: {
       opWalls: true
     }
@@ -61,6 +68,7 @@ Room.create([
     name: 'Room 3',
     floor: '13',
     capacity: 20,
+    price: 120,
     assets: {
       opWalls: true
     }
@@ -69,6 +77,7 @@ Room.create([
     name: 'Room 4',
     floor: '13',
     capacity: 20,
+    price: 130,
     assets: {
       projector: true,
       opWalls: true
@@ -78,6 +87,7 @@ Room.create([
     name: 'Room 5',
     floor: '13',
     capacity: 20,
+    price: 140,
     assets: {
       projector: true
     }

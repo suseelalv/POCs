@@ -27,11 +27,13 @@ import {
 } from './api/auth'
 import { listRooms } from './api/rooms'
 import { getDecodedToken } from './api/token'
-import { makeBooking, deleteBooking, updateStateRoom } from './api/booking'
+import { makeBooking, deleteBooking, updateStateRoom, payBooking } from './api/booking'
 import Calendar from './components/Calendar'
 import BookingModal from './components/BookingModal'
 import { floorParams, filterParams, capacityParams, onFilterByFloor, onFilterByFeature, onFilterByCapacity, onFilterByAvailablity } from './helpers/filters'
 import { initialRoom } from './helpers/rooms'
+
+const razorpayKey = process.env.RAZORPAY_KEY
 
 class App extends Component {
   state = {
@@ -109,6 +111,78 @@ class App extends Component {
       )
       console.log(err)
     }
+  }
+
+  loadScript = (src) => {
+    return new Promise((resolve) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = () => {
+            resolve(true);
+        };
+        script.onerror = () => {
+            resolve(false);
+        };
+        document.body.appendChild(script);
+    });
+  }
+
+  onPayBooking = async (amt) => {
+    const res = await this.loadScript(
+        "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+        alert("Razorpay SDK failed to load. Are you online?");
+        return;
+    }
+
+    var orderIdRazor = 'order_ODxQTVWMn3IQCv'
+    payBooking(amt)
+      .then(orderDetails => {
+        if (orderDetails && orderDetails.id) {
+          orderIdRazor = orderDetails.id
+
+          var options = {
+            "key": razorpayKey,
+            "amount": amt, 
+            "currency": "INR",
+            "name": "RBS", 
+            "description": "Test Transaction",
+            "image": "t-shirt.jpg",
+            "order_id": orderIdRazor,
+            //"callback_url": "http://localhost:3000/mybookings",
+            "handler": async function (response) {
+              console.log('response', response);
+              const data = {
+                  orderCreationId: orderIdRazor,
+                  razorpayPaymentId: response.razorpay_payment_id,
+                  razorpayOrderId: response.razorpay_order_id,
+                  razorpaySignature: response.razorpay_signature,
+              };
+
+              //const result = await axios.post("http://localhost:5000/payment/success", data);
+
+              //alert(data);
+            },
+            "prefill": { 
+                "name": "Saran", 
+                "email": "saran@example.com",
+                "contact": "9000090000" 
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+
+        const paymentObject = new window.Razorpay(options);
+        paymentObject.open();
+        }
+      })
+      .catch(error => console.error(error.message))
   }
 
   // Deletes a booking from the database and updates the React state
@@ -230,6 +304,8 @@ class App extends Component {
     const signOut = this.onSignOut
     const loadMyBookings = this.loadMyBookings
     const onDeleteBooking = this.onDeleteBooking
+    const onPayBooking = this.onPayBooking
+    const loadScript = this.loadScript
     const setCalendarDate = this.setCalendarDate
     const Loading = require('react-loading-animation')
 
@@ -404,6 +480,7 @@ class App extends Component {
                                 user={decodedToken.email}
                                 userBookings={userBookings}
                                 onDeleteBooking={onDeleteBooking}
+                                onPayBooking={onPayBooking}
                               />
                             </div>
                           </div>

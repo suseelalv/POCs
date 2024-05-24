@@ -63,6 +63,7 @@ const roomSchema = new Schema({
   name: { type: String, index: true, required: true },
   floor: { type: String, required: true },
   capacity: Number,
+  price: Number,
   assets: {
     macLab: { type: Boolean, default: false },
     pcLab: { type: Boolean, default: false },

@@ -5,6 +5,11 @@ const Room = require('../models/Room')
 const { requireJWT } = require('../middleware/auth')
 
 const router = new express.Router()
+const Razorpay = require('razorpay')
+var instance = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY,
+  key_secret: process.env.RAZORPAY_SECRET
+})
 
 router.get('/rooms', requireJWT, (req, res) => {
   Room.find()
@@ -25,6 +30,19 @@ router.post('/rooms', requireJWT, (req, res) => {
       res.status(400).json({ error })
     })
 })
+
+router.get('/createorder/:amt', requireJWT, (req, res) => {
+  const { amt } = req.params
+  var options = {
+    amount: amt,
+    currency: 'INR',
+    receipt: 'order_rcptid_11'
+  }
+  instance.orders.create(options, function(err, order) {
+    console.log('order', order)
+    res.json(order)
+  })
+});
 
 // Function to convert UTC JS Date object to a Moment.js object in AEST
 const dateAEST = date => {

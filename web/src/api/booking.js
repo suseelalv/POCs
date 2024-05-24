@@ -69,6 +69,12 @@ export function deleteBooking(roomId, bookingId) {
     .then(res => res.data)
 }
 
+export function payBooking(amt) {
+  return api.get(`/createorder/${amt}`)
+    .then(res => res.data)
+}
+
+
 export function updateStateRoom(self, updatedRoom, loadMyBookings) {
   self.setState((previousState) => {
     // Find the relevant room in React State and replace it with the new room data

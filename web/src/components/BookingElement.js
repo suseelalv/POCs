@@ -7,6 +7,7 @@ import { findRoomInfo } from '../helpers/bookingForm.js'
 function BookingElement({
   bookingData,
   onDeleteBooking,
+  onPayBooking,
   roomData
 }) {
 
@@ -22,15 +23,22 @@ function BookingElement({
         <p>{bookingData.purpose}</p>
       </div>
       <div className="booking__innerbox--middle">
-        <p>From {startTime} to {endTime}</p>
-        <p>Duration: {bookingData.duration}hrs</p>
+        <p>From {startTime} to {endTime}</p>        
         <p>Location: {(roomInfo.floor == 8) ? "Stains" : "Croydon"}, {roomInfo.name}</p>
+        <p>Duration: {bookingData.duration} hrs</p>
+        <p>Price Per Hour: {roomInfo.price} INR</p>
+        <p>Total Price: {bookingData.duration * roomInfo.price} INR</p>
       </div>
       <div className="booking__innerbox--right">
         <Button
           onClick={() => onDeleteBooking(bookingData.roomId, bookingData._id)}
-          text={`Delete`}
-        />
+          text={` Delete `}
+        /><br /> <br />
+        <Button
+          className="btn-cls"
+          onClick={() => onPayBooking(bookingData.duration * roomInfo.price * 100)}
+          text={`Pay now`}
+        />     
       </div>
     </div>
   )
