@@ -37,21 +37,21 @@ function FilterElement({
 
         <h4 className="form__heading form__heading--filter">Features</h4>
         <div onChange={(event) => onToggleFeature(event.target.name)} >
-          <div className="form__group">
+          {/*<div className="form__group">
             <input type="checkbox" id="macLab" name="macLab" className="form__input--checkbox" checked={filterParams[0].value} />
             <label for="macLab" className="form__label form__label--inline">Mac Lab</label>
-          </div>
+          </div>*/}
           <div className="form_group">
             <input type="checkbox" id="pcLab" name="pcLab" className="form__input--checkbox" checked={filterParams[1].value} />
             <label for="pcLab" className="form__label form__label--inline">PC Lab</label>
           </div>
-          <div className="form_group">
+          {/*<div className="form_group">
             <input type="checkbox" id="tv" name="tv" className="form__input--checkbox" checked={filterParams[2].value} />
             <label for="tv" className="form__label form__label--inline">TV</label>
-          </div>
+          </div>*/}
           <div className="form_group">
             <input type="checkbox" id="opWalls" name="opWalls" className="form__input--checkbox" checked={filterParams[3].value} />
-            <label for="opWall" className="form__label form__label--inline">Operable Walls</label>
+            <label for="opWalls" className="form__label form__label--inline">Operable Walls</label>
           </div>
           <div className="form_group">
             <input type="checkbox" id="projector" name="projector" className="form__input--checkbox" checked={filterParams[4].value} />
@@ -60,10 +60,10 @@ function FilterElement({
         </div>
         <h4 className="form__heading form__heading--filter">Capacity</h4>
         <div onChange={ (event) => onToggleCapacity(event.target.id)}>
-          <div className="form_group">
+          {/*<div className="form_group">
             <input type="checkbox" id="16seats" name="16seats" className="form__input--checkbox" checked={capacityParams[0].value} />
             <label for="16seats" className="form__label form__label--inline">16 Seats</label>
-          </div>
+          </div>*/}
           <div className="form_group">
             <input type="checkbox" id="18seats" name="18seats" className="form__input--checkbox" checked={capacityParams[1].value} />
             <label for="18seats" className="form__label form__label--inline">18 Seats</label>
@@ -76,10 +76,10 @@ function FilterElement({
             <input type="checkbox" id="24seats" name="24seats" className="form__input--checkbox" checked={capacityParams[3].value} />
             <label for="24seats" className="form__label form__label--inline">24 Seats</label>
           </div>
-          <div className="form_group">
+          {/*<div className="form_group">
             <input type="checkbox" id="40seats" name="40seats" className="form__input--checkbox" checked={capacityParams[4].value} />
             <label for="40seats" className="form__label form__label--inline">40 Seats</label>
-          </div>
+          </div>*/}
         </div>
         <h4 className="form__heading form__heading--filter">Availability</h4>
           <div onChange={(event) => onSetAvailabilityParam(event.target.value)} >
@@ -91,10 +91,14 @@ function FilterElement({
               <input type="radio" id="partialAvailable" value="partAvail" name="availability" className="form__input--radio" checked={availabilityParam === 'partAvail' ? true : false} />
               <label for="partialAvailable" className="form__label form__label--inline">Partially Available</label>
             </div>
-            <div className="form_group">
+            {/*<div className="form_group">
               <input type="radio" id="fullyBooked" value="fullBooked" name="availability" className="form__input--radio" checked={availabilityParam === 'fullBooked' ? true : false} />
               <label for="fullyBooked" className="form__label form__label--inline">Fully Booked</label>
-            </div><br />
+            </div>*/}
+            <div className="form_group">
+              <input type="radio" id="all" value="all" name="availability" className="form__input--radio" checked={availabilityParam === 'all' ? true : false} />
+              <label for="all" className="form__label form__label--inline">All Availability</label>
+            </div><br /><br />
           </div>
       </form>
     </div>

@@ -41,7 +41,7 @@ export const onFilterByFeature = (params, filteredData) => {
       filteredData = filteredData.filter(room => room.assets.pcLab === true)
     } else if (feature.name === 'tv' && feature.value === true) {
       filteredData = filteredData.filter(room => room.assets.tv === true)
-    } else if (feature.name === 'opWall' && feature.value === true) {
+    } else if (feature.name === 'opWalls' && feature.value === true) {
       filteredData = filteredData.filter(room => room.assets.opWalls === true)
     } else if (feature.name === 'projector' && feature.value === true) {
       filteredData = filteredData.filter(room => room.assets.projector === true)

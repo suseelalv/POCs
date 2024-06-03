@@ -389,7 +389,7 @@ class App extends Component {
                               />
                             </div>
                             <div className="sidebar__box">
-                              <Key />
+                              {/*<Key />*/}
                             </div>
                           </div>
                           <div className="content">
